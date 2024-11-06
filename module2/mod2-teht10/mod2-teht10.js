@@ -6,14 +6,19 @@ const numberOfCandidates = prompt("Enter amount of candidates");
 let candidates = []
 
 
-for (let i = 0; i<numberOfCandidates; i++){
-    const name = prompt(`Enter name for candidate ${i+1}`)
-    const candidate = {
-        name: name,
-        votes: 0
+
+function addCandidates(){
+    for (let i = 0; i<numberOfCandidates; i++){
+        const name = prompt(`Enter name for candidate ${i+1}`)
+        const candidate = {
+            name: name,
+            votes: 0
+        }
+        candidates.push(candidate)
     }
-    candidates.push(candidate)
 }
+
+
 
 
 function votingPhase(){
@@ -21,7 +26,7 @@ function votingPhase(){
     const numberOfVoters = prompt("Enter amount of voters");
 
     for (let i = 0; i<numberOfVoters; i++){
-        const nameOfVoted = prompt("Who you going to vote for?")
+        const nameOfVoted = prompt(`Person ${i+1} votes: `)
     
         for(let i = 0; i<candidates.length; i++){
             if(candidates[i].name == nameOfVoted){
@@ -43,5 +48,8 @@ function result(array){
 }
 
 
+
+
+addCandidates()
 votingPhase()
 result(candidates)
